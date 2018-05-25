@@ -10,7 +10,11 @@ class Triangle
 
   def kind
     if side_1 + side_2 <= side_3 || side_2 + side_3 <= side_1 || side_1 + side_3 <= side_2
-      raise TriangleError
+      begin
+        raise TriangleError
+      rescue TriangleError =>
+        puts error.message
+      end
     elsif side_1 == side_2 && side_1 == side_3
       :equilateral
     elsif side_1 == side_2 || side_1 == side_3 || side_2 == side_3
@@ -22,8 +26,8 @@ class Triangle
 
   class TriangleError < StandardError
     def message
-      "these sides do not create a triangle!!
-    end"
+      "these sides do not create a triangle!!"
+    end
   end
 
 end
