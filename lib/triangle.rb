@@ -21,6 +21,9 @@ class Triangle
   end
 
   class TriangleError < StandardError
+    def message
+      "these sides do not create a triangle!!
+    end"
   end
 
 end
